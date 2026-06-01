@@ -6,6 +6,7 @@ Image=p-nextcloud.build
 ContainerName=nextcloud
 ServiceName=pc-nextcloud
 Pod=p-nextcloud.pod
+Mount=type=volume,source=p-nextcloud.volume,destination=/data
 
 [Install]
 WantedBy=multi-user.target

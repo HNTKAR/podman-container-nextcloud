@@ -6,7 +6,7 @@ Image=p-php.build
 ContainerName=nextcloud-php
 ServiceName=pc-nextcloud-php
 Pod=p-nextcloud.pod
-Mount=type=image,source=nextcloud,destination=/usr/local/share/nextcloud,subpath=/usr/local/share/nextcloud,rw=true
+Mount=type=volume,source=p-nextcloud.volume,destination=/data,U=false
 
 [Install]
 WantedBy=multi-user.target
