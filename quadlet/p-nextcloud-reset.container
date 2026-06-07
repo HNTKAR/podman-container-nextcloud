@@ -5,9 +5,12 @@ Description=reset nextcloud pod
 Image=p-nextcloud-setup.build
 ContainerName=nextcloud-reset
 ServiceName=pc-nextcloud-reset
-Pod=p-nextcloud.pod
 Mount=type=volume,source=p-nextcloud.volume,destination=/data,U=false
+Network=p-internal.network
 Exec=reset
 
 [Install]
 WantedBy=multi-user.target
+
+[Service]
+Type=oneshot

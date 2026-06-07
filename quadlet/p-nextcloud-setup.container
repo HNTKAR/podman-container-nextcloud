@@ -5,8 +5,11 @@ Description=setup nextcloud pod
 Image=p-nextcloud-setup.build
 ContainerName=nextcloud-setup
 ServiceName=pc-nextcloud-setup
-Pod=p-nextcloud.pod
 Mount=type=volume,source=p-nextcloud.volume,destination=/data,U=false
+Network=p-internal.network
 
 [Install]
 WantedBy=multi-user.target
+
+[Service]
+Type=oneshot

@@ -3,12 +3,10 @@
 if [ "$1" = "reset" ]; then
     echo "deleting old data..."
     rm -rf /data/nextcloud
-    echo "Done."
-elif [ ! -d /data/nextcloud ]; then
-    echo "initializing nextcloud..."
+    mariadb -u root -h $DB_HOST -p$DB_PASSWORD < /usr/local/share/deleteDB.sql
     echo "Done."
 else
-    echo "data directory already exists, skipping initialization."
+    echo "setting up nextcloud..."
+    mariadb -u root -h $DB_HOST -p$DB_PASSWORD < /usr/local/share/createDB.sql
+    echo "Done."
 fi
-
-# php nextcloud/occ config:system:set trusted_domains 1 --value localhost

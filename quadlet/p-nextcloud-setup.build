@@ -6,3 +6,6 @@ SetWorkingDirectory=WORKING_DIR_PATH
 File=setup.Containerfile
 ServiceName=pb-nextcloud-setup
 ImageTag=nextcloud-setup
+
+[Service]
+Type=oneshot
