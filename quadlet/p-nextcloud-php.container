@@ -7,6 +7,11 @@ ContainerName=nextcloud-php
 ServiceName=pc-nextcloud-php
 Pod=p-nextcloud.pod
 Mount=type=volume,source=p-nextcloud.volume,destination=/data,U=false
+HealthCmd=/usr/local/bin/cron.sh
+HealthInterval=5m
+HealthTimeout=30s
+HealthRetries=5
+HealthStartPeriod=1m
 
 [Install]
 WantedBy=multi-user.target
